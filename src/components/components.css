@@ -1,0 +1,9 @@
+.digit{
+    background-color: rgb(161, 161, 161);
+    border-color: black;
+    border: solid;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
