@@ -7,19 +7,30 @@ function App() {
   let total = calculatorCreator()
   let myValue = total.useTheFunctions(10, 3, 'add')
   const [num1, setNum1] = useState('')
+  const [num1Decimal, setNum1Decimal] = useState(false)
   const [num2, setNum2] = useState('')
+  const [num2Decimal, setNum2Decimal] = useState(false)
   const [operator, setOperator] = useState('')
   const [result, setResult] = useState('')
 
   function doNumbers(value, type){
-    if(operator=='' && type == 'number'){
+    if(operator == '' && type == 'number'){
+      if(num1 == '' && (value == '0' || value == '.')){
+        return ''
+      }
+      else if(value == '.' && num1Decimal == false){
+        setNum1Decimal(true)
+      }
+      else if(value == '.' && num1Decimal == true){
+        return ''
+      }
       let holder = num1
       holder = holder.split('')
       holder.push(value)
       holder = holder.join('')
       setNum1(holder)
     }
-    else if(operator == "" && type == 'operator'){
+    else if(operator == "" && type == 'operator' && num1 !== ''){
       switch(value){
         case "/":
           setOperator("/")
@@ -36,6 +47,15 @@ function App() {
       }
     } 
     else if(operator !== '' && type == 'number'){
+      if(num2 == '' && (value == '0' || value == '.')){
+        return ''
+      }
+      else if(value == '.' && num2Decimal == false){
+        setNum2Decimal(true)
+      }
+      else if(value == '.' && num2Decimal == true){
+        return ''
+      }
       let holder = num2
       holder = holder.split('')
       holder.push(value)
