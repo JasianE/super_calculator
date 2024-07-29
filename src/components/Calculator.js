@@ -93,7 +93,6 @@ function Calculator(){
     numPads.push(digit('=', doNumbers, 'finish'))
     numPads.push(digit('+', doNumbers, 'operator'))
   
-    console.log(num1, operator,num2)
     return (
         <Draggable>
             <div className='container'>
