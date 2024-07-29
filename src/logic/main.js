@@ -19,13 +19,13 @@ const calculator = () => {
     }
     function useTheFunctions(a,b,c){
         switch (c){
-        case "add":
+        case "+":
             return add(a,b);
-        case "subtract":
+        case "-":
             return subtract(a,b);
-        case "multiply":
+        case "*":
             return multiply(a,b);
-        case "divide":
+        case "/":
             return divide(a,b)
         }
     }
