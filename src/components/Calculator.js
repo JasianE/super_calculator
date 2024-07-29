@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import calculatorCreator from "../logic/main";
+import Draggable, {DraggableCore} from 'react-draggable';
 import digit from "./digit";
 import "../App.css"
 
@@ -94,17 +95,19 @@ function Calculator(){
   
     console.log(num1, operator,num2)
     return (
-        <div className='container'>
-            <div className="screen">
-                <h1>{num1}</h1>
-                <h1>{operator}</h1>
-                <h1>{num2}</h1>
-                <h1>{result}</h1>
+        <Draggable>
+            <div className='container'>
+                <div className="screen">
+                    <h1>{num1}</h1>
+                    <h1>{operator}</h1>
+                    <h1>{num2}</h1>
+                    <h1>{result}</h1>
+                </div>
+                <div className="numpads">
+                    {numPads}
+                </div>
             </div>
-            <div className="numpads">
-                {numPads}
-            </div>
-        </div>
+        </Draggable>
     )
 }
 
